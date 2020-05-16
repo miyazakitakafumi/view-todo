@@ -1,28 +1,46 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div v-for="todo in todos" :key="todo.id">
+      <div>
+      {{todo.name}}
+      </div>
+    </div>
+    <div>{{message}}</div>
+    <message :msg="message"></message>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Message from "./components/Message";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Message
+  },
+  data: () => (
+     {
+      todos: [
+        {id:1, name: 'todo1'},
+        {id:2, name: 'todo2'},
+        {id:3, name: 'todo3'},
+      ],
+       message: 'hahaha'
+    }
+  ),
+  // computed: {
+  //   messages(){
+  //     return this.message + ' babuo'
+  //   }
+  // },
+  // methods: {
+  //   m() {
+  //     console.log('@@@')
+  //     this.message = 'clicked'
+  //   }
+  // }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
