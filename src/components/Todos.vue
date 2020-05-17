@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <input type="text" v-model="title" />
-    <button @click="addTodo">Add</button>
+  <v-container fluid>
+    <div class="add-section">
+      <v-text-field type="text" v-model="title" />
+      <v-btn class="add-btn" @click="addTodo">Add</v-btn>
+    </div>
       <todo-item v-for="todo in todos" :key="todo.id" :todo="todo" @toggle-complete="updateComplete" @remove-todo="removeTodo"/>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -45,4 +47,11 @@
 </script>
 
 <style scoped>
+  .add-section {
+    display: flex;
+    align-items: center;
+  }
+  .add-btn {
+    margin-left: 10px;
+  }
 </style>
