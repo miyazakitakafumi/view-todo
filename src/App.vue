@@ -1,46 +1,32 @@
 <template>
   <div>
-    <div v-for="todo in todos" :key="todo.id">
-      <div>
-      {{todo.name}}
-      </div>
-    </div>
-    <div>{{message}}</div>
-    <message :msg="message"></message>
+    <todos />
   </div>
 </template>
 
 <script>
-import Message from "./components/Message";
+import Todos from './components/Todos'
 
 export default {
   name: 'App',
   components: {
-    Message
+    Todos,
   },
-  data: () => (
-     {
+  data() {
+    return{
       todos: [
-        {id:1, name: 'todo1'},
-        {id:2, name: 'todo2'},
-        {id:3, name: 'todo3'},
+        {id: 1, title: 'todo1', isComplete: true},
+        {id: 2, title: 'todo2', isComplete: false},
+        {id: 3, title: 'todo3', isComplete: false},
       ],
-       message: 'hahaha'
     }
-  ),
-  // computed: {
-  //   messages(){
-  //     return this.message + ' babuo'
-  //   }
-  // },
-  // methods: {
-  //   m() {
-  //     console.log('@@@')
-  //     this.message = 'clicked'
-  //   }
-  // }
+  },
+  computed: {
+  },
+  methods: {
+  }
 }
 </script>
 
-<style>
+<style scoped>
 </style>
